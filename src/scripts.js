@@ -3,39 +3,35 @@ export function Triangle(side1, side2, side3) {
   this.side1 = side1;
   this.side2 =  side2;
   this.side3 = side3;
-  this.equalateral = false;
-  this.isosceles = false;
-  this.scalene = false;
-  this.isNotTriangle = true;
 }
 
 
 Triangle.prototype.decideType = function () {
-  if (this.side1 +  this.side2 > this.side3) {
-    if (this.side1 ===  this.side2 === this.side3) {
-      this.equalateral = true;
+  if ((this.side1 + this.side2) < this.side3 || (this.side2 + this.side3) < this.side1 || (this.side1 + this.side3) < this.side2) {
+    return "not-a-triangle";
+  } else if ((this.side1 + this.side2) >= this.side3) {
+    if (this.side1 ===  this.side2 && this.side2 === this.side3) {
+      return "equilateral";
     } else if (this.side1 ===  this.side2 ||  this.side2 === this.side3 || this.side3 === this.side1) {
-      this.isosceles = true;
+      return "isosceles";
     } else {
-      this.scalene = true;
+      return "scalene";
     }
   } else if ( this.side2 + this.side3 > this.side1) {
-    if (this.side1 ===  this.side2 === this.side3) {
-      this.equalateral = true;
+    if (this.side1 ===  this.side2 && this.side2 === this.side3) {
+      return "equilateral";
     } else if (this.side1 ===  this.side2 ||  this.side2 === this.side3 || this.side3 === this.side1) {
-      this.isosceles = true;
+      return "isosceles";
     } else {
-      this.scalene = true;
+      return "scalene";
     }
   } else if (this.side3 + this.side1 >  this.side2) {
-    if (this.side1 ===  this.side2 === this.side3) {
-      this.equalateral = true;
+    if (this.side1 ===  this.side2 && this.side2 === this.side3) {
+      return "equilateral";
     } else if (this.side1 ===  this.side2 ||  this.side2 === this.side3 || this.side3 === this.side1) {
-      this.isosceles = true;
+      return "isosceles";
     } else {
-      this.scalene = true;
+      return "scalene";
     }
-  } else {
-    this.isNotTriangle = false;
   }
 };
