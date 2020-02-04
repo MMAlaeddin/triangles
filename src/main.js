@@ -4,6 +4,7 @@ import './styles.css';
 import { Triangle } from './scripts.js';
 
 function chooseDisplay(triangle) {
+
   if (triangle.equaleteral) {
     $(".equilateral").show();
   } else if (triangle.isosceles) {
@@ -12,7 +13,8 @@ function chooseDisplay(triangle) {
     $(".scalene").show();
   } else {
     $(".not-triangle").show();
-  }
+  }    
+
 }
 
 $(document).ready(function() {
@@ -23,7 +25,7 @@ $(document).ready(function() {
     var side3 = parseInt($("#side3").val());
     var triangle = new Triangle(side1, side2, side3);
 
-    triangle.decideType();
+    // var result = triangle.decideType();
     chooseDisplay(triangle);
   });
 });
